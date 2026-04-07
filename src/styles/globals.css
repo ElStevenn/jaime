@@ -1,0 +1,54 @@
+:root {
+  --color-black: #0D0D0D;
+  --color-cream: #F5EFE0;
+  --color-red: #C0392B;
+  --color-brass: #B8962E;
+  
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background-color: var(--color-cream);
+  color: var(--color-black);
+  overflow-x: hidden;
+}
+
+a, button {
+  text-decoration: none;
+  font-family: inherit;
+}
+
+/* Typography Utility Classes */
+.title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-stretch: condensed;
+  text-transform: uppercase;
+  letter-spacing: -0.02em; /* Tight tracking */
+}
+
+.label-ui {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Section base */
+section {
+  position: relative;
+  width: 100%;
+}

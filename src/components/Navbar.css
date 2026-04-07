@@ -1,0 +1,89 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  background-color: transparent;
+  padding: 24px 0;
+}
+
+.navbar.scrolled {
+  background-color: var(--color-black);
+  padding: 16px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-brass);
+  text-decoration: none;
+}
+
+.logo-main {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.logo-sub {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-cream);
+  margin-top: 4px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-links a {
+  color: var(--color-cream);
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-brass);
+}
+
+.navbar-links .login-link {
+  margin-left: 16px;
+}
+
+.navbar-links .cta-btn {
+  background-color: var(--color-brass);
+  color: var(--color-black);
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-links .cta-btn:hover {
+  background-color: var(--color-cream);
+  color: var(--color-black);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Hide links on mobile for simplicity, or implement hamburger */
+  }
+}

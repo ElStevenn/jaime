@@ -1,0 +1,196 @@
+.mapa-preview {
+  background-color: var(--color-cream);
+  padding: 120px 0;
+  color: var(--color-black);
+}
+
+.mapa-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 24px;
+}
+
+.mapa-header .title {
+  font-size: clamp(40px, 5vw, 64px);
+  margin-bottom: 16px;
+  color: var(--color-black);
+}
+
+.mapa-subtitle {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.mapa-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ------- Filter pills ------- */
+.mapa-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 800px;
+}
+
+.mapa-pill {
+  background: transparent;
+  border: 1px solid rgba(13, 13, 13, 0.2);
+  color: var(--color-black);
+  padding: 8px 16px;
+  border-radius: 40px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mapa-pill:hover {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: white;
+}
+
+/* ------- Map container ------- */
+.mapa-mockup {
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  background-color: #0D0D0D;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  background-image:
+    radial-gradient(rgba(245, 239, 224, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(245, 239, 224, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* ------- SVG layer ------- */
+.mapa-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mapa-svg .state {
+  transition: fill 0.2s ease;
+}
+
+.mapa-svg .state:hover {
+  fill: #1a1a1a;
+}
+
+/* ------- SVG Pins ------- */
+.mapa-pin-svg {
+  cursor: pointer;
+}
+
+.pin-dot-svg {
+  fill: #C0392B;
+  transition: r 0.2s ease;
+}
+
+.mapa-pin-svg:hover .pin-dot-svg {
+  r: 10;
+}
+
+.mapa-pin-svg.active .pin-dot-svg {
+  r: 10;
+}
+
+.pin-halo-svg {
+  fill: rgba(192, 57, 43, 0.20);
+  animation: pinPulse 2s infinite ease-out;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.mapa-pin-svg.active .pin-halo-svg {
+  fill: rgba(192, 57, 43, 0.35);
+}
+
+@keyframes pinPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ------- Tooltip ------- */
+.pin-tooltip {
+  position: absolute;
+  background-color: var(--color-cream);
+  padding: 16px;
+  border-radius: 8px;
+  width: max-content;
+  min-width: 240px;
+  max-width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  pointer-events: auto;
+  animation: tooltipIn 0.2s ease-out;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tooltip-header .label-ui {
+  font-size: 10px;
+  color: var(--color-black);
+}
+
+.tooltip-body {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--color-black);
+}
+
+.tooltip-link {
+  color: var(--color-brass);
+  font-weight: 500;
+  font-size: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .mapa-mockup {
+    height: 350px;
+  }
+}

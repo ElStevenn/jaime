@@ -1,0 +1,155 @@
+.precios {
+  background-color: #FFFFFF; /* Fondo blanco explícito */
+  padding: 120px 0;
+  color: var(--color-black);
+}
+
+.precios-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.precios-title {
+  font-size: clamp(40px, 5vw, 64px);
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.precios-grid {
+  display: flex;
+  gap: 32px;
+  align-items: center; /* This helps center the cards if they differ in height */
+  justify-content: center;
+}
+
+.precio-card {
+  flex: 1;
+  background-color: var(--color-cream);
+  padding: 48px 32px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.precio-card:hover {
+  transform: translateY(-8px);
+}
+
+.precio-destacado {
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  border-top: 3px solid var(--color-brass);
+  transform: scale(1.05); /* Make it slightly larger initially */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.precio-destacado:hover {
+  transform: scale(1.05) translateY(-8px); /* Combine hover and scale */
+}
+
+.precio-name {
+  color: var(--color-black);
+  margin-bottom: 16px;
+}
+
+.precio-destacado .precio-name {
+  color: var(--color-brass);
+}
+
+.precio-amount {
+  font-size: 56px;
+  margin-bottom: 40px;
+  line-height: 1;
+}
+
+.precio-destacado .precio-amount {
+  color: var(--color-cream);
+}
+
+.precio-period {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.5;
+}
+
+.precio-features {
+  list-style: none;
+  margin-bottom: 48px;
+  flex-grow: 1;
+}
+
+.precio-features li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+  opacity: 0.8;
+}
+
+.precio-features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-red);
+}
+
+.precio-destacado .precio-features li::before {
+  color: var(--color-brass);
+}
+
+.precio-btn {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.precio-card:not(.precio-destacado) .precio-btn.btn-ghost {
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+}
+
+.precio-card:not(.precio-destacado) .precio-btn.btn-ghost:hover {
+  background-color: var(--color-black);
+  color: var(--color-cream);
+}
+
+.precio-destacado .precio-btn.btn-primary {
+  background-color: var(--color-brass);
+  color: var(--color-black);
+  border: none;
+}
+
+.precio-destacado .precio-btn.btn-primary:hover {
+  background-color: var(--color-cream);
+}
+
+@media (max-width: 768px) {
+  .precios-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .precio-card {
+    width: 100%;
+  }
+  
+  .precio-destacado {
+    transform: scale(1);
+  }
+  
+  .precio-destacado:hover {
+    transform: translateY(-8px);
+  }
+}

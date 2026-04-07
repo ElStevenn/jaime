@@ -1,0 +1,93 @@
+.historias {
+  background-color: var(--color-black);
+  padding: 120px 0;
+  color: var(--color-cream);
+}
+
+.historias-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.historias-title {
+  font-size: clamp(32px, 4vw, 56px);
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.historias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.historia-card {
+  position: relative;
+  height: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.historia-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(184, 150, 46, 0.15); /* Subtle brass glow */
+}
+
+.historia-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cancion-title {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-transform: none; /* Keep original casing for quotes */
+  letter-spacing: 0;
+}
+
+.cancion-artista {
+  display: block;
+  color: var(--color-brass);
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+.historia-body {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .historias-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px;
+    /* Hide scrollbar for webkit */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .historias-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .historia-card {
+    min-width: 85vw;
+    scroll-snap-align: center;
+  }
+}

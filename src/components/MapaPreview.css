@@ -1,23 +1,23 @@
 .mapa-preview {
   background-color: var(--color-cream);
-  padding: 120px 0;
+  padding: 80px 0;
   color: var(--color-black);
 }
 
 .mapa-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
   padding: 0 24px;
 }
 
 .mapa-header .title {
-  font-size: clamp(40px, 5vw, 64px);
-  margin-bottom: 16px;
+  font-size: clamp(32px, 5vw, 64px);
+  margin-bottom: 12px;
   color: var(--color-black);
 }
 
 .mapa-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   opacity: 0.7;
 }
 
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
 }
 
 /* ------- Filter pills ------- */
@@ -36,7 +36,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   max-width: 800px;
 }
 
@@ -44,9 +44,9 @@
   background: transparent;
   border: 1px solid rgba(13, 13, 13, 0.2);
   color: var(--color-black);
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: 40px;
-  font-size: 12px;
+  font-size: 11px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -135,11 +135,11 @@
 .pin-tooltip {
   position: absolute;
   background-color: var(--color-cream);
-  padding: 16px;
+  padding: 14px;
   border-radius: 8px;
   width: max-content;
-  min-width: 240px;
-  max-width: 300px;
+  min-width: 200px;
+  max-width: 260px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 20;
   pointer-events: auto;
@@ -165,23 +165,23 @@
 }
 
 .tooltip-header .label-ui {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--color-black);
 }
 
 .tooltip-body {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.2;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--color-black);
 }
 
 .tooltip-link {
   color: var(--color-brass);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   transition: opacity 0.2s ease;
 }
 
@@ -190,7 +190,35 @@
 }
 
 @media (max-width: 768px) {
+  .mapa-preview {
+    padding: 64px 0;
+  }
+
+  .mapa-content {
+    padding: 0 16px;
+  }
+
   .mapa-mockup {
-    height: 350px;
+    height: 260px;
+    border-radius: 12px;
+  }
+
+  .mapa-pills {
+    gap: 8px;
+  }
+
+  .mapa-pill {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  .pin-tooltip {
+    min-width: 180px;
+    max-width: 220px;
+    padding: 12px;
+  }
+
+  .tooltip-body {
+    font-size: 14px;
   }
 }

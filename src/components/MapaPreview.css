@@ -61,72 +61,71 @@
 .mapa-mockup {
   width: 100%;
   max-width: 1000px;
-  height: 500px;
+  aspect-ratio: 960 / 600;
   background-color: #0D0D0D;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  background-image:
-    radial-gradient(rgba(245, 239, 224, 0.1) 1px, transparent 1px),
-    radial-gradient(rgba(245, 239, 224, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
 }
 
-/* ------- SVG layer ------- */
-.mapa-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* ------- Map image ------- */
+.mapa-img {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
-.mapa-svg .state {
-  transition: fill 0.2s ease;
-}
-
-.mapa-svg .state:hover {
-  fill: #1a1a1a;
-}
-
-/* ------- SVG Pins ------- */
-.mapa-pin-svg {
+/* ------- Pins ------- */
+.mapa-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 5;
   cursor: pointer;
 }
 
-.pin-dot-svg {
-  fill: #C0392B;
-  transition: r 0.2s ease;
+.mapa-pin.active {
+  z-index: 10;
 }
 
-.mapa-pin-svg:hover .pin-dot-svg {
-  r: 10;
+.pin-dot {
+  width: 12px;
+  height: 12px;
+  background: #C0392B;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.2s ease;
 }
 
-.mapa-pin-svg.active .pin-dot-svg {
-  r: 10;
+.mapa-pin:hover .pin-dot,
+.mapa-pin.active .pin-dot {
+  transform: scale(1.3);
 }
 
-.pin-halo-svg {
-  fill: rgba(192, 57, 43, 0.20);
+/* Halo pulse */
+.pin-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: rgba(192, 57, 43, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
   animation: pinPulse 2s infinite ease-out;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.mapa-pin-svg.active .pin-halo-svg {
-  fill: rgba(192, 57, 43, 0.35);
 }
 
 @keyframes pinPulse {
   0% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0.6;
   }
   100% {
-    transform: scale(2.5);
+    transform: translate(-50%, -50%) scale(3);
     opacity: 0;
   }
 }
@@ -134,6 +133,7 @@
 /* ------- Tooltip ------- */
 .pin-tooltip {
   position: absolute;
+  left: 50%;
   background-color: var(--color-cream);
   padding: 14px;
   border-radius: 8px;
@@ -143,17 +143,39 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 20;
   pointer-events: auto;
-  animation: tooltipIn 0.2s ease-out;
+  animation: tooltipIn 0.2s ease-out forwards;
+}
+
+.pin-tooltip.above {
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+}
+
+.pin-tooltip.below {
+  top: calc(100% + 12px);
+  transform: translateX(-50%);
+}
+
+.pin-tooltip.flip-left {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.pin-tooltip.flip-left.above {
+  transform: none;
+}
+
+.pin-tooltip.flip-left.below {
+  transform: none;
 }
 
 @keyframes tooltipIn {
   from {
     opacity: 0;
-    transform: translate(-50%, -90%);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -100%);
   }
 }
 
@@ -199,7 +221,6 @@
   }
 
   .mapa-mockup {
-    height: 260px;
     border-radius: 12px;
   }
 
@@ -210,6 +231,16 @@
   .mapa-pill {
     font-size: 10px;
     padding: 6px 12px;
+  }
+
+  .pin-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .pin-dot::after {
+    width: 8px;
+    height: 8px;
   }
 
   .pin-tooltip {

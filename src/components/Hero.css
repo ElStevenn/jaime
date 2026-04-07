@@ -1,8 +1,8 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 600px;
+  height: 100svh; /* Use svh to account for mobile browser chrome */
+  min-height: 580px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(13, 13, 13, 0.75);
+  background-color: rgba(13, 13, 13, 0.72);
 }
 
 .hero-gradient {
@@ -47,7 +47,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at bottom left, rgba(192, 57, 43, 0.6) 0%, transparent 60%);
+  background: radial-gradient(circle at bottom left, rgba(192, 57, 43, 0.55) 0%, transparent 60%);
 }
 
 .hero-content {
@@ -55,21 +55,22 @@
   z-index: 10;
   text-align: center;
   max-width: 800px;
-  padding: 80px 24px 24px;
+  width: 100%;
+  padding: 100px 32px 40px; /* top padding = navbar height */
 }
 
 .hero-label {
   color: var(--color-brass);
-  font-size: 12px;
+  font-size: 11px;
   margin-bottom: 20px;
   display: inline-block;
 }
 
 .hero-title {
   color: var(--color-cream);
-  font-size: clamp(48px, 10vw, 110px);
+  font-size: clamp(52px, 9vw, 110px);
   line-height: 0.9;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   display: flex;
   flex-direction: column;
 }
@@ -106,10 +107,10 @@
 
 .hero-body {
   color: var(--color-cream);
-  font-size: clamp(15px, 2vw, 20px);
-  max-width: 480px;
+  font-size: clamp(15px, 1.8vw, 19px);
+  max-width: 460px;
   margin: 0 auto 36px;
-  line-height: 1.6;
+  line-height: 1.65;
   opacity: 0;
   animation: fadeIn 1s ease-out 1s forwards;
 }
@@ -180,16 +181,17 @@
 
 .hero-vinyl {
   position: absolute;
-  bottom: 32px;
-  right: 32px;
-  width: 100px;
-  height: 100px;
+  bottom: 28px;
+  right: 28px;
+  width: 96px;
+  height: 96px;
   z-index: 10;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-black);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 0 8px rgba(0,0,0,0.5);
+  border: 3px solid rgba(13, 13, 13, 0.8);
   animation: spin 60s linear infinite;
+  flex-shrink: 0;
 }
 
 .hero-vinyl:hover {
@@ -202,13 +204,10 @@
   object-fit: cover;
 }
 
+/* ---- Tablet ---- */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 100px 20px 20px;
-  }
-
-  .hero-body {
-    font-size: 15px;
+    padding: 90px 24px 32px;
   }
 
   .hero-ctas {
@@ -219,20 +218,24 @@
 
   .btn {
     width: 100%;
-    max-width: 280px;
-    padding: 16px 24px;
+    max-width: 300px;
   }
 
   .hero-vinyl {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     bottom: 16px;
     right: 16px;
   }
 }
 
-@media (max-width: 480px) {
+/* ---- Small phones ---- */
+@media (max-width: 420px) {
   .hero-title {
-    font-size: clamp(42px, 13vw, 70px);
+    font-size: clamp(40px, 13vw, 60px);
+  }
+
+  .hero-content {
+    padding: 80px 20px 24px;
   }
 }

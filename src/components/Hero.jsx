@@ -71,7 +71,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-vinyl">
-        <img src="/src/assets/vinyl_disc.png" alt="Disco de vinilo girando" className="vinyl-img" />
+        <img src="/src/assets/vinyl.jpg" alt="Disco de vinilo girando" className="vinyl-img" />
       </div>
     </section>
   );
